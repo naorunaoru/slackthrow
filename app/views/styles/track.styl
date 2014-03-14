@@ -1,0 +1,44 @@
+.track
+  display block
+  color #333
+  padding-left 30px
+  line-height 20px
+  position relative
+  padding 8px 0 8px 33px
+
+  &:hover
+    text-decoration none
+
+    &:before
+      color #2A6496
+
+  &:before
+    font-family 'Glyphicons Halflings'
+    content "\e072"
+    font-size 20px
+    margin-right 10px
+    position absolute
+    left 8px
+    top 50%
+    margin-top -10px
+    color #555
+
+  &.loading
+    &:before
+      content "\e031"
+
+  &.playing
+    background-color #789
+    color #fff
+
+    &:hover
+      &:before
+        color #fff
+
+    &:before
+      content "\e073"
+      color #fff
+
+  &.paused
+    &:before
+      content "\e072"
