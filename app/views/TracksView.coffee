@@ -12,6 +12,8 @@ module.exports = class TracksView extends Marionette.CompositeView
     setTimeout((=> @play()), 1)
 
   play: ->
+    console.log 'play'
+
     InlinePlayer = =>
       self = this
       pl = this
@@ -200,7 +202,10 @@ module.exports = class TracksView extends Marionette.CompositeView
             foundItems++
           i++
         if foundItems > 0
-          self.addEventHandler document, "click", self.handleClick
+          # self.addEventHandler document, "click", self.handleClick
+          @$el.find('a').on 'click', (e) =>
+            @handleClick(e)
+
           if self.config.autoPlay
             self.handleClick
               target: self.links[0]
