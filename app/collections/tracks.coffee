@@ -8,9 +8,10 @@ module.exports = class TrackCollection extends Collection
 
   url: -> "http://json2jsonp.com/?url=http://pleer.com/browser-extension/search?q=#{@request}&callback=?"
 
-  parse: (req) ->
-    console.log req
-    return req.tracks
+  parse: (req) -> req.tracks
 
   initialize: (options) ->
+    singleSelect = new Backbone.Picky.SingleSelect this
+    _.extend this, singleSelect
+
     @request = options.request
