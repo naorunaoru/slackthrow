@@ -1,16 +1,44 @@
-// nib is a powerful lib for stylus that provides cross-browser css3 mixins.
-// No more vendor prefixes. http://visionmedia.github.com/nib/
 @import 'nib'
 
+$FHEIGHT = 72
+
 *
-  box-sizing: border-box
-  // -webkit-font-smoothing: antialiased;
+  box-sizing border-box
+
+html, body
+  margin 0
+  height 100%
+
+.main-container
+  min-height 100%
+  margin-bottom -72px
+  padding-bottom 50px
+
+  &:after
+    content ''
+    display block
+
+footer, .main-container:after
+  height 72px
+  color #aaa
+
+footer
+  border-top 1px solid #eee
+  padding 20px 0
+  text-align center
+  p, img
+    display inline-block
+
+  img
+    margin 0 10px
+    &.gh
+      height 30px
+    &.tw
+      height 25px
 
 img
   image-rendering: auto;
 
-body
-  padding-bottom 60px
-
 .results
   margin-top 24px
+
