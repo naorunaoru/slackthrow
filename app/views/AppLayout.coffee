@@ -7,3 +7,4 @@ module.exports = class AppLayout extends Backbone.Marionette.Layout
   regions:
     search: "#search"
     content: "#content"
+    player: "#player"

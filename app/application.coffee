@@ -1,5 +1,4 @@
 require 'lib/view_helper'
-G = require 'globals'
 
 class Application extends Backbone.Marionette.Application
   initialize: =>
@@ -17,6 +16,16 @@ class Application extends Backbone.Marionette.Application
       # Instantiate the router
       Router = require 'lib/router'
       @router = new Router()
+
+    @addInitializer =>
+      # global player
+      GlobalPlayer = require 'views/GlobalPlayer'
+
+      @vent.on 'player:load', (model, autoplay) =>
+        console.log model, autoplay
+        @layout.player.show new GlobalPlayer
+          model: model
+          autoplay: autoplay
 
     @start()
 
