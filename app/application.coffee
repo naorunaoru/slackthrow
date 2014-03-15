@@ -5,9 +5,8 @@ class Application extends Backbone.Marionette.Application
   initialize: =>
 
     @on "initialize:after", (options) =>
-      Backbone.history.start();
-      # Freeze the object
-      Object.freeze? this
+      Backbone.history.start
+        pushState: true
 
     @addInitializer =>
       AppLayout = require 'views/AppLayout'
