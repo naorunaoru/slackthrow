@@ -4,7 +4,7 @@
   line-height 50px
   color #789
   position relative
-  padding-left 40px
+  padding-left 55px
 
   .nowplaying
     display block
@@ -27,3 +27,16 @@
     &.paused
       &:after
         content "\e072"
+
+  playlist
+    font-family 'Glyphicons Halflings'
+    font-size 10px
+    line-height 10px
+    cursor pointer
+    position absolute
+    left 39px
+    top 50%
+    margin-top -5px
+    color rgba(119, 136, 153, 0.57)
+    &:after
+      content "\e012"

@@ -1,4 +1,5 @@
 app = require 'application'
+TracksView = require 'views/TracksView'
 
 module.exports = class GlobalPlayer extends Marionette.ItemView
   template: require 'views/templates/globalPlayer'
@@ -8,8 +9,10 @@ module.exports = class GlobalPlayer extends Marionette.ItemView
 
   events:
     'click control': 'playPause'
+    'click playlist': 'loadCurrentPlaylist'
 
   playPause: ->
+    console.log @model.collection
     if @playing
       app.vent.trigger 'player:pause'
       @model.paused = true
@@ -18,6 +21,9 @@ module.exports = class GlobalPlayer extends Marionette.ItemView
       app.vent.trigger 'player:play'
       @model.paused = false
       @model.trigger 'playpause'
+
+  loadCurrentPlaylist: ->
+    app.layout.content.show new TracksView collection: @model.collection
 
   onFinish: ->
     console.log 'finished playing'
