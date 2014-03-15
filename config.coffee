@@ -41,3 +41,14 @@ exports.config =
     templates:
       defaultExtension: 'hbs'
       joinTo: 'javascripts/app.js'
+
+  overrides:
+    production:
+      optimize: true
+      sourceMaps: false
+      plugins:
+        uglify:
+          mangle: true
+        cleancss:
+          keepSpecialComments: 0
+          removeEmpty: true
